@@ -4,7 +4,7 @@
 
 
 void _welcomeMenu();
-void _promptMenu(); 
+void _homeMenu(); 
 bool _checkMenuInputLength(char *input); 
 void _notValid();  
 
@@ -17,7 +17,7 @@ int main()
 
      _welcomeMenu();
     do{
-        _promptMenu();
+        _homeMenu();
 
         printf("\n>> ");
         fgets(buffer, sizeof(buffer), stdin);  
@@ -72,7 +72,7 @@ void _notValid(){
     printf("******************************************************\n"); 
 } 
 
-void _promptMenu(){
+void _homeMenu(){
     printf("\n1. Celcius\n"); 
     printf("2. Fahrenheit\n");
     printf("3. Kelvin\n"); 
@@ -86,4 +86,33 @@ bool _checkMenuInputLength(char *input){
         return true; 
     else
         return false; 
+}
+
+
+void _boilingMenu(char const *temperatureType){
+    if(temperatureType == NULL){
+        printf("_boilingMenu() ERROR: CANNOT PARSE NULL"); 
+        return; 
+    }
+    printf("******************************************************\n"); 
+    printf(" %s selected!\n",temperatureType); 
+    printf(" Select the boiling point, in %s\n", temperatureType); 
+    printf("******************************************************\n"); 
+}
+
+void _getTemp(char const *temperatureType){
+    if(temperatureType == NULL){
+        printf("_getTemp() ERROR: CANNOT PARSE NULL"); 
+        return; 
+    }
+    _boilingMenu(temperatureType);   
+    //get use input
+    char buffer[256];
+    printf(">> "); 
+    fgets(buffer, sizeof(buffer), stdin); 
+    buffer[strcspn(buffer, "\n")] = 0;
+
+    const float temp = atof(buffer);
+
+    //convert input to a number 
 }
