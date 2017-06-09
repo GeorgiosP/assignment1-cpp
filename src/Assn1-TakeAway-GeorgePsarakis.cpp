@@ -89,7 +89,7 @@ void _displayValue(int year){
     }
     else{
     float dollarsSpent = calculateDollarsSpent(yearsSince);
-    printf("\nIn the year %d the amount spent on fast food on credit and debit cards in the US was %.2f billion\n\n", year, dollarsSpent);
+    printf("\nIn the year %d the amount spent on fast food both on credit and debit cards in the US was %.2f billion\n\n", year, dollarsSpent);
     }
 }
 
