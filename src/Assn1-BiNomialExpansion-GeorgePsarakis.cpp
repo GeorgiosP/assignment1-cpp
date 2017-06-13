@@ -1,11 +1,14 @@
 #include <stdio.h> 
 #include <string.h>
 #include <stdlib.h>
+#include <iostream>
 
 void _welcomeMenu(); 
 void _homeMenu(); 
-bool _checkMenuInputLength(); 
-void _notValid();
+bool _checkMenuInputLength(char *input); 
+void _notValid(char const *function);
+void _pascalsTriangle();
+void _binomialTherom();
 
 int main(){
     char buffer[256];
@@ -17,7 +20,7 @@ int main(){
         printf("\n>> ");
         fgets(buffer, sizeof(buffer), stdin);
 
-        buffer[strcspn(buffer), "\n")] = 0;
+        buffer[strcspn(buffer, "\n")] = 0;
         if(_checkMenuInputLength(buffer)){
             int menuSelection = atoi(buffer); 
             switch(menuSelection){
@@ -32,14 +35,14 @@ int main(){
                     keepGoing = false; 
                     break;
                 default:
-                    _notValid("Default Case: main");
+                    _notValid("Default Case: Main");
             }
         }
         else{
             _notValid("Error: main"); 
         }
 
-    }while(keepGoing == true)
+    }while(keepGoing == true);
 
     return 0; 
 }
@@ -73,4 +76,44 @@ bool _checkMenuInputLength(char *input){
         return true; 
     else
         return false; 
+}
+
+void _pascalsTriangle(){
+    printf("\nPascals Triangle Selected!\n"); 
+    printf("Enter a number between 0 and 10\n");
+    
+    char buffer[256];
+    printf(">> ");
+
+    fgets(buffer, sizeof(buffer), stdin);
+    buffer[strcspn(buffer, "\n")] = 0; 
+
+    int rows = atoi(buffer);
+    if(rows <= 10){
+    
+    for(int i = 0; i < rows; i++){
+        int val = 1; 
+        for(int j = 1; j < (rows - i); j++){
+            printf("  "); 
+        }
+        for(int k = 0; k <= i; k++){
+            printf("   %d", val);
+            val = val * (i - k) / (k + 1); 
+        }
+        printf("\n\n");
+    }
+    printf("\n"); 
+    return;
+    }
+    else{
+        printf("your input must be between 0 and 10");
+        return;
+    }
+    return;  
+}
+
+void _binomialTherom(){
+    printf("Hello"); 
+
+    return; 
 }
