@@ -113,7 +113,14 @@ void _pascalsTriangle(){
 }
 
 void _binomialTherom(){
-    printf("Hello"); 
+    printf("\nBinomial Therom Selected!\n");
+    printf("Enter a natural number:")
 
+    char buffer[256];
+    printf(">> ");
+
+    fgets(buffer, sizeof(buffer), stdin);
+    buffer[strcspn(buffer, "\n")] = 0; 
+    
     return; 
 }
