@@ -115,7 +115,7 @@ void _pascalsTriangle(){
 
 void _binomialTherom(){
     printf("\nBinomial Therom Selected!\n");
-    printf("Enter a natural number:\n");
+    printf("Enter yoru first natural number:\n");
 
     char buffer[256];
     // char bufferTwo[256];
@@ -126,30 +126,33 @@ void _binomialTherom(){
     buffer[strcspn(buffer, "\n")] = 0; 
     int firstValue = atoi(buffer);
 
+    printf("Enter your second natural number:\n");
+
     printf(">> ");
     fgets(buffer, sizeof(buffer),stdin);
     buffer[strcspn(buffer, "\n")] = 0; 
     int secondValue = atoi(buffer);
 
-    binomial(firstValue, secondValue);
+    int expandedValue = binomial(firstValue, secondValue);
+    printf("Total using biomial theorem  %d", expandedValue);
 
     
     return; 
 }
 
-int binomial(int n, int k){
+int binomial(int x, int y){
 
     int num, den;
-    if(n < k){
+    if(x < y){
         
         return(0); 
     }
     else{
         int den = 1; 
         int num = 1;
-        for(int i = 1; i <= k; i = i+1)
+        for(int i = 1; i <= y; i = i+1)
             den = den * i; 
-        for(int j = n-k+1; j<=n; j=j+1)
+        for(int j = x-y+1; j<=x; j=j+1)
             num = num * j; 
             return(num/den);
     }
