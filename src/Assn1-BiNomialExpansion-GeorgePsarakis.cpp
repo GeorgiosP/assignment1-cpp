@@ -9,6 +9,7 @@ bool _checkMenuInputLength(char *input);
 void _notValid(char const *function);
 void _pascalsTriangle();
 void _binomialTherom();
+int binomial(int n, int k); 
 
 int main(){
     char buffer[256];
@@ -114,13 +115,43 @@ void _pascalsTriangle(){
 
 void _binomialTherom(){
     printf("\nBinomial Therom Selected!\n");
-    printf("Enter a natural number:")
+    printf("Enter a natural number:\n");
 
     char buffer[256];
+    // char bufferTwo[256];
+
     printf(">> ");
 
     fgets(buffer, sizeof(buffer), stdin);
     buffer[strcspn(buffer, "\n")] = 0; 
+    int firstValue = atoi(buffer);
+
+    printf(">> ");
+    fgets(buffer, sizeof(buffer),stdin);
+    buffer[strcspn(buffer, "\n")] = 0; 
+    int secondValue = atoi(buffer);
+
+    binomial(firstValue, secondValue);
+
     
     return; 
+}
+
+int binomial(int n, int k){
+
+    int num, den;
+    if(n < k){
+        
+        return(0); 
+    }
+    else{
+        int den = 1; 
+        int num = 1;
+        for(int i = 1; i <= k; i = i+1)
+            den = den * i; 
+        for(int j = n-k+1; j<=n; j=j+1)
+            num = num * j; 
+            return(num/den);
+    }
+    return(0);
 }
